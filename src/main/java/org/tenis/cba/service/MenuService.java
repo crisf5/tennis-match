@@ -34,4 +34,13 @@ public class MenuService {
 
     }
 
+    public static void probabilityWin(PlayerModel player1, PlayerModel player2) throws InterruptedException {
+
+        System.out.println("\nLas probabilidades de ganar de "
+                + player1.getNamePlayer() + " son del " + player1.getProbabilityToWin() + "%");
+        System.out.println("Las probabilidades de ganar de "
+                + player2.getNamePlayer() + " son del " + player2.getProbabilityToWin() + "%\n");
+        Thread.sleep(2000);
+
+    }
 }

@@ -26,30 +26,40 @@ public class MatchService {
         }
     }
 
-    public static void winGame(PlayerModel player1, PlayerModel player2){
-        if (player1.getPoints() == 5){
+    public static void winGame(PlayerModel player1, PlayerModel player2) throws InterruptedException {
+        if (player1.getPoints() == 4){
             player1.setGamesWin(player1.getGamesWin() + 1);
+            System.out.println(player1.getNamePlayer() + " ganó 1 Game.");
             player1.setPoints(0);
             player2.setPoints(0);
-        }else if (player2.getPoints() == 5){
+            Thread.sleep(1000);
+        }else if (player2.getPoints() == 4){
             player2.setGamesWin(player2.getGamesWin() + 1);
+            System.out.println(player2.getNamePlayer() + " ganó 1 Game.");
             player1.setPoints(0);
             player2.setPoints(0);
+            Thread.sleep(1000);
         }
     }
 
-    public static void winSet(PlayerModel player1, PlayerModel player2){
+    public static void winSet(PlayerModel player1, PlayerModel player2) throws InterruptedException {
 
         if(player1.getGamesWin() == 6 && player2.getGamesWin()<5
                 || player1.getGamesWin() == 7){
             player1.setSetsWin(player1.getSetsWin() + 1);
+            System.out.println(player1.getNamePlayer() + " ganó el set!");
+            System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin());
             player1.setGamesWin(0);
             player2.setGamesWin(0);
+            Thread.sleep(2500);
         } else if (player2.getGamesWin() == 6 && player1.getGamesWin()<5
                 || player2.getGamesWin() == 7){
             player2.setSetsWin(player2.getSetsWin() + 1);
+            System.out.println(player2.getNamePlayer() + " ganó el set!");
+            System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin());
             player1.setGamesWin(0);
             player2.setGamesWin(0);
+            Thread.sleep(2500);
         }
     }
 
@@ -64,6 +74,17 @@ public class MatchService {
         }
         return maxWin;
 
+    }
+
+    public static void winner(TournamentModel tournament, PlayerModel player1, PlayerModel player2){
+
+        if(player1.getSetsWin() > player2.getSetsWin()){
+            System.out.println("El jugador " + player1.getNamePlayer() +
+                    " es el ganador del torneo " + tournament.getTournamentName() + "!!");
+        }else{
+            System.out.println("El jugador " + player2.getNamePlayer() +
+                    " es el ganador del torneo " + tournament.getTournamentName() + "!!");
+        }
     }
 
 }
