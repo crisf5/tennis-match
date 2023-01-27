@@ -6,7 +6,7 @@ public class PlayerModel {
     private Integer probabilityToWin;
     private String ball;
     private Integer points = 0;
-    private Integer pointsTennis;
+    private String pointsTennis;
     private Integer gamesWin = 0;
     private Integer setsWin = 0;
 
@@ -34,11 +34,11 @@ public class PlayerModel {
         this.points = points;
     }
 
-    public Integer getPointsTennis() {
+    public String getPointsTennis() {
         return pointsTennis;
     }
 
-    public void setPointsTennis(Integer pointsTennis) {
+    public void setPointsTennis(String pointsTennis) {
         this.pointsTennis = pointsTennis;
     }
 

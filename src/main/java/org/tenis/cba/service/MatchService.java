@@ -20,42 +20,54 @@ public class MatchService {
     public static void points(PlayerModel player1, PlayerModel player2){
         Double prob = Math.random()*100;
         if(player1.getProbabilityToWin()>prob){
-            player1.setPoints(player1.getPoints() + 1);
+            if(player1.getPoints() == 3 && player2.getPoints() == 4){
+                player2.setPoints(player2.getPoints() - 1);
+            }else{
+                player1.setPoints(player1.getPoints() + 1);
+            }
             System.out.println(player1.getNamePlayer() + " ganó un punto.");
         }else{
-            player2.setPoints(player2.getPoints() + 1);
+            if(player2.getPoints() == 3 && player1.getPoints() == 4){
+                player1.setPoints(player1.getPoints() - 1);
+            }else{
+                player2.setPoints(player2.getPoints() + 1);
+            }
             System.out.println(player2.getNamePlayer() + " ganó un punto.");
         }
     }
 
     public static void pointsTennis(PlayerModel player){
         if(player.getPoints()==0){
-            player.setPointsTennis(0);
+            player.setPointsTennis("0");
         }else if(player.getPoints()==1){
-            player.setPointsTennis(15);
+            player.setPointsTennis("15");
         }else if (player.getPoints()==2){
-            player.setPointsTennis(30);
+            player.setPointsTennis("30");
         }else if (player.getPoints()==3){
-            player.setPointsTennis(40);
+            player.setPointsTennis("40");
+        }else if (player.getPoints()==4){
+            player.setPointsTennis("AD");
         }
     }
 
     public static void winGame(PlayerModel player1, PlayerModel player2) throws InterruptedException {
-        if (player1.getPoints() == 4){
+        if (player1.getPoints() == 4 && player2.getPoints() < 3
+                || player1.getPoints() == 5 && player2.getPoints() == 3){
             player1.setGamesWin(player1.getGamesWin() + 1);
             System.out.println(player1.getNamePlayer() + " ganó el Game.\n");
             player1.setPoints(0);
             player2.setPoints(0);
-            player1.setPointsTennis(0);
-            player2.setPointsTennis(0);
+            player1.setPointsTennis("0");
+            player2.setPointsTennis("0");
             Thread.sleep(1000);
-        }else if (player2.getPoints() == 4){
+        }else if (player2.getPoints() == 4 && player1.getPoints() < 3
+                || player2.getPoints() == 5 && player1.getPoints() == 3){
             player2.setGamesWin(player2.getGamesWin() + 1);
             System.out.println(player2.getNamePlayer() + " ganó el Game.\n");
             player1.setPoints(0);
             player2.setPoints(0);
-            player1.setPointsTennis(0);
-            player2.setPointsTennis(0);
+            player1.setPointsTennis("0");
+            player2.setPointsTennis("0");
             Thread.sleep(1000);
         }
     }
@@ -103,9 +115,10 @@ public class MatchService {
 
     }
 
-    public static void winSet(TournamentModel tournament,
-                              PlayerModel player1, PlayerModel player2,
-                              TableModel tablePlayer1, TableModel tablePlayer2) throws InterruptedException {
+    public static void winSet(
+            TournamentModel tournament,
+            PlayerModel player1, PlayerModel player2,
+            TableModel tablePlayer1, TableModel tablePlayer2) throws InterruptedException {
 
         if(player1.getGamesWin() == 6 && player2.getGamesWin()<5
                 || player1.getGamesWin() == 7){

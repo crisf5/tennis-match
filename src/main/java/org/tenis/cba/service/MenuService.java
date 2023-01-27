@@ -104,14 +104,16 @@ public class MenuService {
 
         Boolean incorrectNum = true;
         while (incorrectNum){
-            System.out.print("Ingrese velocidad de simulacion de partido (1 o 2): ");
+            System.out.print("Ingrese velocidad de simulacion de partido (1 o 2 o 3): ");
             Integer speed = sc.nextInt();
             if(speed==1){
                 tournament.setSpeedMatch(1000);
             }else if(speed == 2){
                 tournament.setSpeedMatch(500);
+            }else if(speed == 3){
+                tournament.setSpeedMatch(250);
             }
-            if(speed == 1 || speed == 2){
+            if(speed == 1 || speed == 2 || speed == 3){
                 incorrectNum = false;
             }
         }
