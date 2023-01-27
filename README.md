@@ -1,6 +1,10 @@
 ## Java Tenis
 
+Autor: **Cristian Fernandez**
+
 El proyecto utiliza Java 11
+
+Para ejecutar la aplicacion se debe hacer **run del TennisApp**
 
 
 ## Uso del programa
