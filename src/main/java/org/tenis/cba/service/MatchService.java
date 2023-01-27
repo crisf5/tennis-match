@@ -32,12 +32,16 @@ public class MatchService {
             System.out.println(player1.getNamePlayer() + " ganó el Game.\n");
             player1.setPoints(0);
             player2.setPoints(0);
+            player1.setPointsTennis(0);
+            player2.setPointsTennis(0);
             Thread.sleep(800);
         }else if (player2.getPoints() == 4){
             player2.setGamesWin(player2.getGamesWin() + 1);
             System.out.println(player2.getNamePlayer() + " ganó el Game.\n");
             player1.setPoints(0);
             player2.setPoints(0);
+            player1.setPointsTennis(0);
+            player2.setPointsTennis(0);
             Thread.sleep(800);
         }
     }
@@ -51,7 +55,7 @@ public class MatchService {
             System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin() + "\n\n");
             player1.setGamesWin(0);
             player2.setGamesWin(0);
-            Thread.sleep(2000);
+            Thread.sleep(1500);
         } else if (player2.getGamesWin() == 6 && player1.getGamesWin()<5
                 || player2.getGamesWin() == 7){
             player2.setSetsWin(player2.getSetsWin() + 1);
@@ -59,7 +63,7 @@ public class MatchService {
             System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin() + "\n\n");
             player1.setGamesWin(0);
             player2.setGamesWin(0);
-            Thread.sleep(2000);
+            Thread.sleep(1500);
         }
     }
 

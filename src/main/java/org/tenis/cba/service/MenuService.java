@@ -11,26 +11,46 @@ public class MenuService {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Ingrese el nombre del Jugador 1: ");
-        String namePlayer1 = sc.nextLine();
-        player1.setNamePlayer(namePlayer1);
 
-        System.out.print("Ingrese el nombre del Jugador 2: ");
-        String namePlayer2 = sc.nextLine();
-        player2.setNamePlayer(namePlayer2);
+        String namePlayer1 = "";
+        while (namePlayer1.isBlank()){
+            System.out.print("Ingrese el nombre del Jugador 1: ");
+            namePlayer1 = sc.nextLine();
+            player1.setNamePlayer(namePlayer1);
+        }
 
-        System.out.print("Ingrese el nombre del torneo: ");
-        String nameTournament = sc.nextLine();
-        tournament.setTournamentName(nameTournament);
+        String namePlayer2="";
+        while(namePlayer2.isBlank()){
+            System.out.print("Ingrese el nombre del Jugador 2: ");
+            namePlayer2 = sc.nextLine();
+            player2.setNamePlayer(namePlayer2);
+        }
 
-        System.out.print("Ingrese cantidad de sets (3 o 5): ");
-        Integer bestSet = sc.nextInt();
-        tournament.setBestSet(bestSet);
+        String nameTournament = "";
+        while(nameTournament.isBlank()){
+            System.out.print("Ingrese el nombre del torneo: ");
+            nameTournament = sc.nextLine();
+            tournament.setTournamentName(nameTournament);
+        }
 
-        System.out.print("Ingrese las probabilidades de ganar del 'Jugador 1' (0 a 100): ");
-        Integer probability = sc.nextInt();
-        player1.setProbabilityToWin(probability);
-        player2.setProbabilityToWin(100 - probability);
+        Boolean incorrectNum = true;
+        while (incorrectNum){
+            System.out.print("Ingrese cantidad de sets (3 o 5): ");
+            Integer bestSet = sc.nextInt();
+            tournament.setBestSet(bestSet);
+            if(bestSet == 3 || bestSet == 5){
+                incorrectNum = false;
+            }
+        }
+
+        Integer probability = -1;
+        while(probability<0 || probability>100){
+            System.out.print("Ingrese las probabilidades de ganar del 'Jugador 1' (0 a 100): ");
+            probability = sc.nextInt();
+            player1.setProbabilityToWin(probability);
+            player2.setProbabilityToWin(100 - probability);
+        }
+
 
     }
 
@@ -46,8 +66,16 @@ public class MenuService {
     public static void restartMatch(PlayerModel player1, PlayerModel player2){
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Quiere la revancha? (Conteste si o no): ");
-        String restart = sc.nextLine();
+        Boolean incorrectWord = true;
+        String restart = "";
+        while(incorrectWord){
+            System.out.print("Quiere la revancha? (Conteste si o no): ");
+            restart = sc.nextLine();
+            if(restart.equalsIgnoreCase("si") || restart.equalsIgnoreCase("no")){
+                incorrectWord = false;
+            }
+        }
+
         System.out.println("\n\n");
 
         if(restart.equalsIgnoreCase("si")){

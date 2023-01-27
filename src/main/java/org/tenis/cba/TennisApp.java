@@ -6,10 +6,6 @@ import org.tenis.cba.service.MatchService;
 import org.tenis.cba.service.MenuService;
 import org.tenis.cba.service.TableService;
 
-/**
- * Hello world!
- *
- */
 public class TennisApp
 {
     public static void main( String[] args ) throws InterruptedException {
@@ -40,6 +36,7 @@ public class TennisApp
             }
         }
 
+        System.out.println("Fin del programa!\n");
 
     }
 }
