@@ -85,6 +85,16 @@ public class MenuService {
             player2.setPoints(0);
             player2.setGamesWin(0);
             player2.setSetsWin(0);
+            tablePlayer1.setSet1(0);
+            tablePlayer1.setSet2(0);
+            tablePlayer1.setSet3(0);
+            tablePlayer1.setSet4(0);
+            tablePlayer1.setSet5(0);
+            tablePlayer2.setSet1(0);
+            tablePlayer2.setSet2(0);
+            tablePlayer2.setSet3(0);
+            tablePlayer2.setSet4(0);
+            tablePlayer2.setSet5(0);
         }
     }
 
