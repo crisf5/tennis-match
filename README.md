@@ -2,9 +2,11 @@
 
 Autor: **Cristian Fernandez**
 
-El proyecto utiliza Java 11
+Proyecto Maven utiliza Java 11
 
 Para ejecutar la aplicacion se debe hacer **run del TennisApp**
+
+Probado en: Intellij, Eclipse **(En la consola al teclear se insertan los inputs correctamente)**
 
 
 ## Uso del programa
