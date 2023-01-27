@@ -31,9 +31,15 @@ public class TennisApp
             MatchService.winSet(player1,player2);
 
             TableService.generateTable(tournament, player1, player2);
+
+            if(player1.getSetsWin() == MatchService.cantSet(tournament)
+                    || player2.getSetsWin() == MatchService.cantSet(tournament)){
+
+                MatchService.winner(tournament, player1, player2);
+                MenuService.restartMatch(player1, player2);
+            }
         }
 
-        MatchService.winner(tournament, player1, player2);
 
     }
 }

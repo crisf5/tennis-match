@@ -29,16 +29,16 @@ public class MatchService {
     public static void winGame(PlayerModel player1, PlayerModel player2) throws InterruptedException {
         if (player1.getPoints() == 4){
             player1.setGamesWin(player1.getGamesWin() + 1);
-            System.out.println(player1.getNamePlayer() + " ganó 1 Game.");
+            System.out.println(player1.getNamePlayer() + " ganó el Game.\n");
             player1.setPoints(0);
             player2.setPoints(0);
-            Thread.sleep(1000);
+            Thread.sleep(800);
         }else if (player2.getPoints() == 4){
             player2.setGamesWin(player2.getGamesWin() + 1);
-            System.out.println(player2.getNamePlayer() + " ganó 1 Game.");
+            System.out.println(player2.getNamePlayer() + " ganó el Game.\n");
             player1.setPoints(0);
             player2.setPoints(0);
-            Thread.sleep(1000);
+            Thread.sleep(800);
         }
     }
 
@@ -48,18 +48,18 @@ public class MatchService {
                 || player1.getGamesWin() == 7){
             player1.setSetsWin(player1.getSetsWin() + 1);
             System.out.println(player1.getNamePlayer() + " ganó el set!");
-            System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin());
+            System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin() + "\n\n");
             player1.setGamesWin(0);
             player2.setGamesWin(0);
-            Thread.sleep(2500);
+            Thread.sleep(2000);
         } else if (player2.getGamesWin() == 6 && player1.getGamesWin()<5
                 || player2.getGamesWin() == 7){
             player2.setSetsWin(player2.getSetsWin() + 1);
             System.out.println(player2.getNamePlayer() + " ganó el set!");
-            System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin());
+            System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin() + "\n\n");
             player1.setGamesWin(0);
             player2.setGamesWin(0);
-            Thread.sleep(2500);
+            Thread.sleep(2000);
         }
     }
 
@@ -80,10 +80,10 @@ public class MatchService {
 
         if(player1.getSetsWin() > player2.getSetsWin()){
             System.out.println("El jugador " + player1.getNamePlayer() +
-                    " es el ganador del torneo " + tournament.getTournamentName() + "!!");
+                    " es el ganador del torneo " + tournament.getTournamentName() + "!!\n");
         }else{
             System.out.println("El jugador " + player2.getNamePlayer() +
-                    " es el ganador del torneo " + tournament.getTournamentName() + "!!");
+                    " es el ganador del torneo " + tournament.getTournamentName() + "!!\n");
         }
     }
 
