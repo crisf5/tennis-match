@@ -1,6 +1,7 @@
 package org.tenis.cba.service;
 
 import org.tenis.cba.model.PlayerModel;
+import org.tenis.cba.model.TableModel;
 import org.tenis.cba.model.TournamentModel;
 
 import java.util.Scanner;
@@ -10,7 +11,6 @@ public class MenuService {
     public static void menuData(PlayerModel player1, PlayerModel player2, TournamentModel tournament){
 
         Scanner sc = new Scanner(System.in);
-
 
         String namePlayer1 = "";
         while (namePlayer1.isBlank()){
@@ -60,10 +60,10 @@ public class MenuService {
                 + player1.getNamePlayer() + " son del " + player1.getProbabilityToWin() + "%");
         System.out.println("Las probabilidades de ganar de "
                 + player2.getNamePlayer() + " son del " + player2.getProbabilityToWin() + "%\n");
-        Thread.sleep(1500);
+
     }
 
-    public static void restartMatch(PlayerModel player1, PlayerModel player2){
+    public static void restartMatch(PlayerModel player1, PlayerModel player2, TableModel tablePlayer1, TableModel tablePlayer2){
         Scanner sc = new Scanner(System.in);
 
         Boolean incorrectWord = true;
@@ -86,5 +86,26 @@ public class MenuService {
             player2.setGamesWin(0);
             player2.setSetsWin(0);
         }
+    }
+
+    public static void speedSimulation(TournamentModel tournament) throws InterruptedException {
+
+        Scanner sc = new Scanner(System.in);
+
+        Boolean incorrectNum = true;
+        while (incorrectNum){
+            System.out.print("Ingrese velocidad de simulacion de partido (1 o 2): ");
+            Integer speed = sc.nextInt();
+            if(speed==1){
+                tournament.setSpeedMatch(1000);
+            }else if(speed == 2){
+                tournament.setSpeedMatch(500);
+            }
+            if(speed == 1 || speed == 2){
+                incorrectNum = false;
+            }
+        }
+        System.out.println("\n");
+        Thread.sleep(800);
     }
 }
