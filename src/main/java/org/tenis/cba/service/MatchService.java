@@ -47,7 +47,7 @@ public class MatchService {
         if(player1.getGamesWin() == 6 && player2.getGamesWin()<5
                 || player1.getGamesWin() == 7){
             player1.setSetsWin(player1.getSetsWin() + 1);
-            System.out.println(player1.getNamePlayer() + " ganó el set!");
+            System.out.println(player1.getNamePlayer() + " ganó el Set!");
             System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin() + "\n\n");
             player1.setGamesWin(0);
             player2.setGamesWin(0);
@@ -55,7 +55,7 @@ public class MatchService {
         } else if (player2.getGamesWin() == 6 && player1.getGamesWin()<5
                 || player2.getGamesWin() == 7){
             player2.setSetsWin(player2.getSetsWin() + 1);
-            System.out.println(player2.getNamePlayer() + " ganó el set!");
+            System.out.println(player2.getNamePlayer() + " ganó el Set!");
             System.out.println("EL resultado total es " + player1.getSetsWin() + " a " + player2.getSetsWin() + "\n\n");
             player1.setGamesWin(0);
             player2.setGamesWin(0);
